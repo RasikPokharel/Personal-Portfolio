@@ -1,12 +1,18 @@
-
+import logo from './logo.svg';
 import './App.css';
-import React, { useState, useEffect } from "react";
-import Navbar from "./Components/Navbar";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Container from 'react-bootstrap/esm/Container';
+import NavBar from './Component/NavBar';
+import About from './Component/About';
+import Footer from './Component/Footer';
+import Home from './Component/Home';
+import React, { useState, useEffect } from "react";
+import Project from './Component/Project/Project';
+
+import Resume from './Component/Resume';
+
 
 function App() {
+
   const [load, upadateLoad] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -15,19 +21,22 @@ function App() {
   }, []);
   return (
     <Router>
-      <Preloader load={load} />
-      <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Navbar />
-        <ScrollToTop />
+      <div className="main-Class" id={load ? "no-scroll" : "scroll"}>
+        <NavBar />
         <Switch>
+
           <Route path="/" exact component={Home} />
-          <Route path="/project" component={Projects} />
           <Route path="/about" component={About} />
+          <Route path="/projects" component={Project} />
           <Route path="/resume" component={Resume} />
+
         </Switch>
-        <Footer />
+
       </div>
+      <Footer />
     </Router>
+
+
   );
 }
 
