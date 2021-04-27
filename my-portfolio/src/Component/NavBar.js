@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar,Button,Nav, FormControl, Form, NavDropdown} from 'react-bootstrap';
 import {Container, Row, Col} from 'react-bootstrap';
 import logo from '../Capture.JPG';
-
+import pdf from '../resume.pdf';
 
 
 function NavBar () {
@@ -33,7 +33,9 @@ function NavBar () {
                 </Col>
                 </Nav>
                 <Nav>
-                    <Nav.Link href="">Download CV</Nav.Link>
+                        <Button variant="primary" href={pdf} target="_blank">
+                            <i className="fas fa-download">&nbsp;</i>Download CV
+                        </Button>
                 </Nav>
                 
                 </Navbar.Collapse>
